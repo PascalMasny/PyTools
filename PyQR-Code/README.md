@@ -1,5 +1,5 @@
 # PyLogger
-A simple Python based QR-Code maker.
+A simple python based QR-Code maker.
 
 # Usage
 ```./pylogger.sh```
