@@ -1,6 +1,9 @@
-# PyLogger
-A simple python based QR-Code maker.
+# PyQr-Code
+Generate QR Codes easy with python.
 
 # Usage
-```./pylogger.sh```
+```python3 py_QR.py```
 The QR Code is saved in the same directory as the python script.
+
+#Example
+![image](example.png)
