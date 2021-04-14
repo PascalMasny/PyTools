@@ -1,5 +1,5 @@
 # estimate-pi
-Send e-mails via python with the smtplib.
+Estimate Pi easy at home without a super computer.
 Authentication over TLS
 
 # Usage
