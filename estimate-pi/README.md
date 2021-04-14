@@ -8,4 +8,6 @@ Authentication over TLS
 ```estimate_pi+csv.py``` normal output + .csv file
 
 # Tutorial
+Joma Tech tutorial:
 [![Joma Tech Tutorial:](https://img.youtube.com/vi/pvimAM_SLic/0.jpg)](http://www.youtube.com/watch?v=pvimAM_SLic)
+cc Joma Tech
