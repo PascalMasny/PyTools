@@ -9,5 +9,7 @@ Authentication over TLS
 
 # Tutorial
 Joma Tech tutorial:
+<br>
 [![Joma Tech Tutorial:](https://img.youtube.com/vi/pvimAM_SLic/0.jpg)](http://www.youtube.com/watch?v=pvimAM_SLic)
+<br>
 cc Joma Tech
