@@ -5,5 +5,5 @@ Generate QR Codes easy with python.
 ```python3 py_QR.py```
 The QR Code is saved in the same directory as the python script.
 
-#Example
+# Example
 ![image](example.png)
