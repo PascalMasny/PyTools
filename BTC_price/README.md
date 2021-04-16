@@ -9,4 +9,4 @@ install: ```pip install request```
 # Usage
 ```python3 btc_euro_price_simple.py``` see a simple output of the current price
 <br>
-output: ``BTC Price: 51,720.2343€```
+output: ```BTC Price: 51,720.2343€```
