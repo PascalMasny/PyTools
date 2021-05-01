@@ -16,7 +16,7 @@ LINE_WIDTH = 15
 WIN_LINE_WIDTH = 15
 SQUARE_SIZE = 200
 
-#board frontend
+#board frontend / backend
 BOARD_ROWS = 3
 BOARD_COLS = 3
 
@@ -36,6 +36,10 @@ CROSS_COLOR = (233, 196, 106)
 screen = pygame.display.set_mode( (WIDTH, HEIGHT) )
 pygame.display.set_caption( 'TIC TAC TOE' )
 screen.fill( BG_COLOR )
+
+#Icon
+programIcon = pygame.image.load('icon.jfif')
+pygame.display.set_icon(programIcon) #Show Icon
 
 #board backend
 board = np.zeros( (BOARD_ROWS, BOARD_COLS) )
@@ -198,3 +202,4 @@ while True:
 				game_over = False
 
 	pygame.display.update()
+	
