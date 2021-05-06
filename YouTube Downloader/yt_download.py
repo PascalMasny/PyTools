@@ -18,6 +18,7 @@ print("Descripotions: ", yt.description) # Video Description
 print("Ration: ", yt.rating) # Infos
 
 ys = yt.streams.get_highest_resolution()
+# ys = yt.streams.get_audio_only()
 
 
 done = False
@@ -35,10 +36,10 @@ t = threading.Thread(target=animate)
 t.start()
 
 
-ys.download("")
+ys.download()
 
 
-time.sleep(10)
+time.sleep(1)
 done = True
 
 
