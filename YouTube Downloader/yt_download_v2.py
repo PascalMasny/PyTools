@@ -10,7 +10,10 @@ from termcolor import colored
 from pyfiglet import Figlet
 
 
+
+link = input("Enter the link: ")
 yt = YouTube(link)
+
 
 
 #Print Info
@@ -69,26 +72,48 @@ def video_download():
     global done
     done = True
 
+
+
 #menue
 # 
 #     
 questions = [
     inquirer.List(
-        "output",
+        "main",
         message="What do you want to download your video as?",
         choices=["mp4 - Video", "mp3 - Music", "Exit"],
     ),
 ]
 answers = inquirer.prompt(questions)
 
-link = input("Enter the link: ")
 
-if answers == {'output': 'mp4 - Video'}:
+
+
+
+
+
+
+
+
+if answers == {'main': 'mp4 - Video'}:
     video_download()
 
-elif answers == {'output': 'mp3 - Music'}:
+elif answers == {'main': 'mp3 - Music'}:
     audio_download()
 
-elif answers == {'output': 'Exit'}:
+elif answers == {'main': 'Exit'}:
     exit()
 
+
+
+
+#restart
+restart = [
+    inquirer.List(
+        "restart",
+        message="Do you want to restart?",
+        choices=["Restart - Back to the menu", "Exit"],
+    ),
+]
+
+answers2 = inquirer.prompt(restart)
