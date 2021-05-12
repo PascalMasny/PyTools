@@ -11,17 +11,11 @@ from pyfiglet import Figlet
 
 
 
-link = input("Enter the link: ")
-yt = YouTube(link)
 
 
 
-#Print Info
-print("Title: ", yt.title) #Title
-print("Number of views: ", yt.views) #Views
-print("Length of the video: ", yt.length, "sec.") #Time
-print("Descripotions: ", yt.description) # Video Description
-print("Ration: ", yt.rating) # Infos
+
+
 
 
 #Loding Animation
@@ -38,6 +32,13 @@ def animate():
 
 # Audio Doenload
 def audio_download():
+
+    link = input("Enter the link: ")
+    
+    yt = YouTube(link)
+    
+    info(link)
+
     #just audio
     video = yt.streams.filter(only_audio=True).first()
     
@@ -58,6 +59,11 @@ def audio_download():
 
 # Video Download
 def video_download():
+
+    link = input("Enter the link: ")
+    #return link
+    info()
+
     #video + audio 
     ys = yt.streams.get_highest_resolution()
 
@@ -74,17 +80,15 @@ def video_download():
 
 
 
-#menue
-# 
-#     
-questions = [
-    inquirer.List(
-        "main",
-        message="What do you want to download your video as?",
-        choices=["mp4 - Video", "mp3 - Music", "Exit"],
-    ),
-]
-answers = inquirer.prompt(questions)
+def info(link):
+
+    
+    yt = YouTube(link)
+    print("Title: ", yt.title) #Title
+    print("Number of views: ", yt.views) #Views
+    print("Length of the video: ", yt.length, "sec.") #Time
+    print("Descripotions: ", yt.description) # Video Description
+    print("Ration: ", yt.rating) # Infos
 
 
 
@@ -95,25 +99,61 @@ answers = inquirer.prompt(questions)
 
 
 
-if answers == {'main': 'mp4 - Video'}:
-    video_download()
-
-elif answers == {'main': 'mp3 - Music'}:
-    audio_download()
-
-elif answers == {'main': 'Exit'}:
-    exit()
 
 
 
 
-#restart
-restart = [
-    inquirer.List(
-        "restart",
-        message="Do you want to restart?",
-        choices=["Restart - Back to the menu", "Exit"],
-    ),
-]
 
-answers2 = inquirer.prompt(restart)
+
+
+
+
+def main_menu():    
+    questions = [
+        inquirer.List(
+            "main",
+            message="What do you want to download your video as?",
+            choices=["mp4 - Video", "mp3 - Music", "Exit"],
+        ),
+    ]
+    answers = inquirer.prompt(questions)
+
+    if answers == {'main': 'mp4 - Video'}:
+        video_download()
+
+    elif answers == {'main': 'mp3 - Music'}:
+        audio_download()
+
+    elif answers == {'main': 'Exit'}:
+        exit()
+
+    restart_menu()
+
+
+
+
+
+
+def restart_menu():
+    restart = [
+        inquirer.List(
+            "restart",
+            message="Do you want to restart?",
+            choices=["Restart - Back to the menu", "Exit"],
+        ),
+    ]
+
+    answers2 = inquirer.prompt(restart)
+
+    if answers2 == {"restart" : "Restart - Back to the menu"}:
+        link = input("Enter the link: ")
+        main_menu()
+
+    elif answers2 == {"restart" : "Exit"}:
+        exit()
+
+
+
+
+while True:
+    main_menu()
