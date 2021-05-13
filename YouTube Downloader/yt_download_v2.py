@@ -6,15 +6,6 @@ import time
 import sys
 import os
 import inquirer
-from termcolor import colored
-from pyfiglet import Figlet
-
-
-
-
-
-
-
 
 
 
@@ -29,6 +20,18 @@ def animate():
         sys.stdout.flush()
         time.sleep(0.1)
     sys.stdout.write('\rDone!   ')
+
+# Logo
+def logo():
+    from termcolor import colored
+    from pyfiglet import Figlet
+
+    print("")
+    print("")
+
+    f = Figlet(font = "standard")
+    print(colored(f.renderText("YouTube"), "red")+ colored(f.renderText("Downloader "), "white"))
+
 
 # Audio Doenload
 def audio_download():
@@ -60,9 +63,10 @@ def audio_download():
 # Video Download
 def video_download():
 
+
     link = input("Enter the link: ")
-    #return link
-    info()
+    yt = YouTube(link)
+    info(link)
 
     #video + audio 
     ys = yt.streams.get_highest_resolution()
@@ -78,11 +82,8 @@ def video_download():
     global done
     done = True
 
-
-
+#Video Info
 def info(link):
-
-    
     yt = YouTube(link)
     print("Title: ", yt.title) #Title
     print("Number of views: ", yt.views) #Views
@@ -91,24 +92,11 @@ def info(link):
     print("Ration: ", yt.rating) # Infos
 
 
+#Menu
+def main_menu(): 
+    logo()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def main_menu():    
     questions = [
         inquirer.List(
             "main",
@@ -129,12 +117,11 @@ def main_menu():
 
     restart_menu()
 
-
-
-
-
-
+# Restart Menu
 def restart_menu():
+
+    logo()
+
     restart = [
         inquirer.List(
             "restart",
@@ -146,6 +133,7 @@ def restart_menu():
     answers2 = inquirer.prompt(restart)
 
     if answers2 == {"restart" : "Restart - Back to the menu"}:
+        os.system('cls' if os.name == 'nt' else 'clear') #Terminal Clear
         link = input("Enter the link: ")
         main_menu()
 
