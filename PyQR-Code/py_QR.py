@@ -4,7 +4,7 @@ print("QR-Code-Generator")
 print("\n")
 
 #ask Filename
-file_name = inputt("Filename (myQR-Code):  ")
+file_name = input("Filename (myQR-Code):  ")
 
 #fileextension .png/jpg.
 file_ext = ".png"
