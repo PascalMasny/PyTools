@@ -1,28 +1,23 @@
-# importing libraries
-from bs4 import BeautifulSoup as BS
-import requests
-  
-  
-# method to get the price of gold
-def get_price(url):
-      
-    # getting the request from url 
-    data = requests.get(url)
-  
-    # converting the text 
-    soup = BS(data.text, 'html.parser')
-  
-    # finding metha info for the current price
-    ans = soup.find("div", class_ = "BNeawe s3v9rd AP7Wnd").text
-      
-    # returnng the price
-    return ans
-   
-# url of the gold price
-url = "https://www.google.com/search?q=gold+price"
-  
-# calling the get_price method
-ans = get_price(url)
-  
-# printing the ans
-print(ans)
+#Import
+from yahoo_fin import stock_info
+
+# get 1oz gold price
+gold_oz_dollar = stock_info.get_live_price("GC=F")
+# 1oz$ to 1g$
+gold_1g_dollar = gold_oz_dollar / 28.34952
+# 1g$ to 1g€
+gold_1g_euro = gold_1g_dollar * 0.7618
+
+#inptuz
+g = input ("mass in gramm (1 - 1000): ")
+
+#Print
+print("1oz Gold price: " , gold_oz_dollar , "$")
+print("1g Gold price: " , gold_1g_dollar , "$")
+print("1g Gold price: " , gold_1g_euro , "€")
+print("")
+
+"""   !!!!int BIG!!!!!
+print(g, "g Gold price: " + g* gold_1g_dollar, "$")
+print(g, "g Gold price: " + g* gold_1g_euro, "€")
+"""
