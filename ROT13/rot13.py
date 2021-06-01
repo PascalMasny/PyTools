@@ -1,3 +1,4 @@
+#Input
 import string
 
 upper = list(string.ascii_uppercase)
@@ -16,4 +17,5 @@ def rot13(msg):
         
     return result
 
+#Input
 print(rot13("Hello World"))
